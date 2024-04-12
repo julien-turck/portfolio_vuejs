@@ -11,6 +11,11 @@ const router = createRouter({
       component: Accueil
     },
     {
+      path: '/Accueil.vue',
+      name: 'Accueil',
+      component: Accueil
+    },
+    {
       path: '/:pathMatch(.*)',
       name: 'NotFound',
       component: NotFound
