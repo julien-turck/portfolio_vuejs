@@ -125,7 +125,6 @@ const mock = [
         <form class="form" action="https://formsubmit.co/81378b8103d24994e932f61a4606f7da" method="POST"
             target="_blank">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://julien-turck.github.io/assets/pages/thanks.html">
             <label for="firstname">
                 <input type="text" name="firstname" id="firstname" placeholder="prénom" required>
             </label>
