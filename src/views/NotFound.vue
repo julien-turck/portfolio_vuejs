@@ -8,6 +8,7 @@
         <figure class="img404">
             <img src="../../src/assets/pictures/404.png" alt="image d'un alien tapotant sur un clavier">
         </figure>
+        <div>Pour revenir à la page d'accueil, <a href="Accueil.vue">cliquez ici</a></div>
     </div>
 </template>
 
