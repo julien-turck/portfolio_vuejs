@@ -34,6 +34,7 @@ function close() {
                     <li>{{ data.techno4 }}</li>
                     <li>{{ data.techno5 }}</li>
                 </ul>
+                <p>Lien pour visualiser le résultat : <a href="lien.html" target="_blank">{{ data.lien1 }}</a></p>
             </div>
         </div>
     </div>
