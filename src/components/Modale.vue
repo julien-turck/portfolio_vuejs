@@ -53,11 +53,6 @@ function close() {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*visibility: hidden;*/
-}
-
-.modal.active {
-    visibility: visible;
 }
 
 .modal a {
