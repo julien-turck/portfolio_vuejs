@@ -1,28 +1,33 @@
 <script setup>
 import Modale from "../components/Modale.vue"
 import { ref } from 'vue'
-const modaleOk = ref(false)
+const visible = ref(false)
 const idModale = ref(0)
-function isVisible(idButton) {
+/*function isVisible(idButton) {
     idModale.value = idButton
-    modaleOk.value = !modaleOk.value
-    console.log(modaleOk)
+    visible.value = !visible.value
+    console.log(visible)
+}*/
+function modaleToggleCallback(idButton) {
+    idModale.value = idButton
+    visible.value = !visible.value
+    console.log(visible)
 }
 const mock = [
     {
-        'titre': "Création d'un Portfolio", 'date': '2024', 'description': "Projet réalisé durant ma formation de développeur web full-stack. Il consitait à créer un portfolio me présentant ainsi que mes premières créations en tant que développeur débutant. Parmi les contraintes, outre les technologies à utiliser, listées plus bas, il y avait des contenus et des effets attendus. Ce que j'ai acquis avec ce projet, c'est l'utilisation de VueJS, la liaison de plusieurs pages, l'ancrage des menus, la génération de modales ainsi que l'envoi de formulaires en ligne.", 'techno1': 'HTML', 'techno2': 'CSS', 'techno3': 'JavaScript', 'techno4': 'VueJS v3', 'techno5': 'Github', 'lien1': 'https://julien-turck.github.io', 'lien2': 'https://github.com/julien-turck/portfolio_vuejs'
+        'titre': "Création d'un Portfolio", 'date': '2024', 'description': "Projet réalisé durant ma formation de développeur web full-stack. Il consitait à créer un portfolio me présentant ainsi que mes premières créations en tant que développeur débutant. Parmi les contraintes, outre les technologies à utiliser, listées plus bas, il y avait des contenus et des effets attendus. Ce que j'ai acquis avec ce projet, c'est l'utilisation de VueJS, la liaison de plusieurs pages, l'ancrage des menus, la génération de modales ainsi que l'envoi de formulaires en ligne.", 'techno1': 'HTML', 'techno2': 'CSS', 'techno3': 'JavaScript', 'techno4': 'VueJS v3', 'techno5': 'Github', 'lien': 'https://github.com/julien-turck/portfolio_vuejs', 'image1': '../../assets/pictures/404.png'
     },
     {
-        'titre': "Création d'un Curriculum Vitae", 'date': '2024', 'description': "Projet réalisé durant ma formation de développeur web full-stack. Il consitait à éditer mon CV, présentant mon parcours scolaire et professionnel. Parmi les contraintes, outre les technologies à utiliser, listées plus bas, il y avait des contenus et des effets attendus. Ce que j'ai acquis avec ce projet, c'est la génération d'une page en HTML avec l'ajout d'un favicon, stylisée avec du CSS. J'ai également appris à créer des effets et des renvois vers des liens externes. Enfin, j'ai appris à utiliser un outil de versionning et à vérifier la conformité de mes projets avec les recommandations du W3C.", 'techno1': 'HTML', 'techno2': 'CSS', 'techno3': 'Git', 'techno4': 'Github', 'techno5': 'Visual Studio', 'lien1': 'https://julien-turck.github.io', 'lien2': 'https://github.com/julien-turck/mon_Cv'
+        'titre': "Création d'un Curriculum Vitae", 'date': '2024', 'description': "Projet réalisé durant ma formation de développeur web full-stack. Il consitait à éditer mon CV, présentant mon parcours scolaire et professionnel. Parmi les contraintes, outre les technologies à utiliser, listées plus bas, il y avait des contenus et des effets attendus. Ce que j'ai acquis avec ce projet, c'est la génération d'une page en HTML avec l'ajout d'un favicon, stylisée avec du CSS. J'ai également appris à créer des effets et des renvois vers des liens externes. Enfin, j'ai appris à utiliser un outil de versionning et à vérifier la conformité de mes projets avec les recommandations du W3C.", 'techno1': 'HTML', 'techno2': 'CSS', 'techno3': 'Git', 'techno4': 'Github', 'techno5': 'Visual Studio', 'lien': 'https://github.com/julien-turck/mon_Cv', 'image1': '../assets/pictures/404.png'
     },
     {
-        'titre': "Création d'un cahier des charges", 'date': '2024', 'description': "Projet réalisé durant ma formation de développeur web full-stack. Il consitait à éditer un cahier des charges répondant à la commande d'un site e-commerce. Le client était imposé mais fictif. Il avait des exigences de conenus pour ces clients, de type de payements ainsi que de transferts de compétences au niveau du back-office. Ce que j'ai acquis avec ce projet, c'est la confection d'un projet répondant à un besoin, la recherche sur ce qui se fait dans un domaine donné ainsi que sur la recherche d'offres d'hébergement.", 'techno1': 'WordPress', 'techno2': 'WooCommerce', 'techno3': 'SumUp', 'techno4': 'OVH', 'techno5': 'Canva', 'lien1': '../assets/documents/cahier_des_charges.pdf'
+        'titre': "Création d'un cahier des charges", 'date': '2024', 'description': "Projet réalisé durant ma formation de développeur web full-stack. Il consitait à éditer un cahier des charges répondant à la commande d'un site e-commerce. Le client était imposé mais fictif. Il avait des exigences de conenus pour ces clients, de type de payements ainsi que de transferts de compétences au niveau du back-office. Ce que j'ai acquis avec ce projet, c'est la confection d'un projet répondant à un besoin, la recherche sur ce qui se fait dans un domaine donné ainsi que sur la recherche d'offres d'hébergement.", 'techno1': 'WordPress', 'techno2': 'WooCommerce', 'techno3': 'SumUp', 'techno4': 'OVH', 'techno5': 'Canva', 'lien': 'https://github.com/julien-turck/documents-pdf/cahier_des_charges.pdf', 'image1': '../assets/pictures/404.png'
     },
     {
-        'titre': 'Dynamiser un espace de commentaires', 'date': '2024', 'description': "Projet réalisé durant ma formation de développeur web full-stack. Il consitait à rendre un espace de commentaire plus fluide dans son utilisation et dans l'affichage des informations. Parmi les contraintes, outre les technologies à utiliser, listées plus bas, il y avait des contenus et des effets attendus. Ce que j'ai acquis avec ce projet, c'est la création d'une fonction permettant l'affichage d'un nouveau bloc avec du contenu personnalisé, l'affichage d'un message d'erreur au moment opportun ainsi que la gestion du comportement d'une fonction.", 'techno1': 'HTML', 'techno2': 'Javascript', 'techno3': 'Git', 'techno4': 'Github', 'techno5': 'VisualStudio', 'lien1': 'https://julien-turck.github.io', 'lien2': 'https://github.com/julien-turck/mon_premier_javascript'
+        'titre': 'Dynamiser un espace de commentaires', 'date': '2024', 'description': "Projet réalisé durant ma formation de développeur web full-stack. Il consitait à rendre un espace de commentaire plus fluide dans son utilisation et dans l'affichage des informations. Parmi les contraintes, outre les technologies à utiliser, listées plus bas, il y avait des contenus et des effets attendus. Ce que j'ai acquis avec ce projet, c'est la création d'une fonction permettant l'affichage d'un nouveau bloc avec du contenu personnalisé, l'affichage d'un message d'erreur au moment opportun ainsi que la gestion du comportement d'une fonction.", 'techno1': 'HTML', 'techno2': 'Javascript', 'techno3': 'Git', 'techno4': 'Github', 'techno5': 'VisualStudio', 'lien': 'https://github.com/julien-turck/mon_premier_javascript', 'image1': '../assets/pictures/404.png'
     },
     {
-        'titre': "Administration d'un réseau de bibliothèques", 'date': 'De 2017 à 2022', 'description': "Desciption de mon poste au sein des bibliothèques d'Epinal. Vous pouvez visionner ici mon dossier de validation d'acquis d'expérience qui m'a permis de valider le BTS SIO. Ce serait beaucoup trop long de résumer ici ce que j'ai acquis durant cette période.Je vous invite donc à parcourir le PDF associé. Il vous permettra de juger de mes compétences dans les domaines de la maintenance, de l'administration et de la sécurisation du matériel informatique et des infrastructures réseaux.", 'techno1': 'Hyperviseurs', 'techno2': 'Serveurs OS Windows et Linux', 'techno3': 'Matériels réseau : Switchs, parefeux, proxys, bornes WIFI', 'techno4': 'Postes de travail OS Windows et Linux', 'techno5': 'Terminals mobiles OS Androïd et Apple', 'lien1': '../assets/documents/livret_vae.pdf'
+        'titre': "Administration d'un réseau de bibliothèques", 'date': 'De 2017 à 2022', 'description': "Desciption de mon poste au sein des bibliothèques d'Epinal. Vous pouvez visionner ici mon dossier de validation d'acquis d'expérience qui m'a permis de valider le BTS SIO. Ce serait beaucoup trop long de résumer ici ce que j'ai acquis durant cette période.Je vous invite donc à parcourir le PDF associé. Il vous permettra de juger de mes compétences dans les domaines de la maintenance, de l'administration et de la sécurisation du matériel informatique et des infrastructures réseaux.", 'techno1': 'Hyperviseurs', 'techno2': 'Serveurs OS Windows et Linux', 'techno3': 'Matériels réseau : Switchs, parefeux, proxys, bornes WIFI', 'techno4': 'Postes de travail OS Windows et Linux', 'techno5': 'Terminals mobiles OS Androïd et Apple', 'lien': 'https://github.com/julien-turck/documents-pdf/vae.pdf', 'image1': '../assets/pictures/404.png'
     },
 ]
 
@@ -63,7 +68,7 @@ const mock = [
             <h3 id="Portfolio">Portfolio</h3>
             <p>Parce que des exemples sont plus parlant, </p>
             <p>Outre ce site que j'ai entièrement réalisé et dont vous pouvez consulter le projet en <button
-                    class="openModal" @click="() => isVisible(0)">cliquant ici</button></p>
+                    class="openModal" @click="() => modaleToggleCallback(0)">cliquant ici</button></p>
             <p>Vous pourrez visualiser ci-dessous les derniers projets auxquels j'ai participé.</p>
             <p>Pour visualiser tous mes projets et trouver celui qui vous convient : <RouterLink to="./projets.html">
                     cliquez
@@ -79,7 +84,7 @@ const mock = [
                 <div class="card__description">
                     <h3>Création d'un Curriculum Vitae</h3>
                     <p>Projet réalisé durant ma formation de développeur web full-stack.</p>
-                    <button class="openModal" @click="() => isVisible(1)">Pour en savoir plus</button>
+                    <button class="openModal" @click="() => modaleToggleCallback(1)">Pour en savoir plus</button>
                 </div>
             </div>
             <div class="card">
@@ -90,7 +95,7 @@ const mock = [
                 <div class="card__description">
                     <h3>Exemple de cahier des charges</h3>
                     <p>Projet réalisé durant ma formation de développeur web full-stack.</p>
-                    <button class="openModal" @click="() => isVisible(2)">Pour en savoir plus</button>
+                    <button class="openModal" @click="() => modaleToggleCallback(2)">Pour en savoir plus</button>
                 </div>
             </div>
             <div class="card">
@@ -100,7 +105,7 @@ const mock = [
                 <div class="card__description">
                     <h3>Dynamiser un espace de commentaire</h3>
                     <p>Projet réalisé durant ma formation de développeur web full-stack.</p>
-                    <button class="openModal" @click="() => isVisible(3)">Pour en savoir plus</button>
+                    <button class="openModal" @click="() => modaleToggleCallback(3)">Pour en savoir plus</button>
                 </div>
             </div>
             <div class="card">
@@ -110,7 +115,7 @@ const mock = [
                 <div class="card__description">
                     <h3>Administration d'un réseau de bibliothèques</h3>
                     <p>Desciption de mon poste au sein des bibliothèques d'Epinal.</p>
-                    <button class="openModal" @click="() => isVisible(4)">Pour en savoir
+                    <button class="openModal" @click="() => modaleToggleCallback(4)">Pour en savoir
                         plus</button>
                 </div>
             </div>
@@ -142,7 +147,7 @@ const mock = [
             <input type="submit" id="envoyer" value="Envoyer">
         </form>
     </div>
-    <Modale :data="mock[idModale]" v-show="modaleOk" />
+    <Modale :data="mock[idModale]" v-show="visible" />
 </template>
 
 <style scoped>

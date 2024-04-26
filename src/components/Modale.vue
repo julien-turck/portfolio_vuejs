@@ -1,24 +1,32 @@
 <script setup>
 
 const props = defineProps(["data"])
+const emit = defineEmits(['click'])
 import { ref } from 'vue'
-const visible = ref(false)
-function close() {
-    visible.value = !visible.value
-    console.log(visible)
+//const visible = ref(false)
+/*function close() {
+visible.value = !visible.value
+console.log(visible)
+}*/
+function modaleToggle() {
+    emit('click')
 }
+
 
 </script>
 
 
 <template>
     <div class="modal" v-show="visible">
-        <div class="modal__overlay" @click="() => close()"></div>
+        <div class="modal__overlay" @click="() => modaleToggle()"></div>
         <div class="modal__content">
-            <button class="modal__close" @click="() => close()">&times;</button>
+            <button class="modal__close" @click="() => modaleToggle()">&times;</button>
             <div>
                 <h3>{{ data.titre }}</h3>
                 <div class="modal__année">
+                    <figure>
+                        <img :src="data.image1" alt="image illustrant une partie du projet">
+                    </figure>
                     <figure>
                         <img src="../assets/pictures/calendrier.png" alt="icône représentant un calendrier">
                     </figure>
@@ -34,9 +42,8 @@ function close() {
                     <li>{{ data.techno4 }}</li>
                     <li>{{ data.techno5 }}</li>
                 </ul>
-                <p>Lien pour visualiser le résultat : <a href="lien.html" target="_blank">{{ data.lien1 }}</a></p>
-                <p>Lien pour accéder au projet Github, le cas échéant : <a href="https://github.com/julien-turck"
-                        target="_blank">{{ data.lien2 }}</a></p>
+                <p>Lien pour accéder au projet Github : <a :href="data.lien" target="_blank">cliquez
+                        ici</a></p>
             </div>
         </div>
     </div>
