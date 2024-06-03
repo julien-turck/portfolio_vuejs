@@ -8,7 +8,7 @@ const router = createRouter({
     
     {
       path: '/Accueil.vue',
-      name: 'Accueil',
+      name: 'retourAccueil',
       component: Accueil
     },
     {
