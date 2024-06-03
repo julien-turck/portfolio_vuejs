@@ -40,6 +40,19 @@ Dans la barre d'URL d'un navigateur Internet, copiez et collez l'adresse local d
 
 Démarrez le logiciel Visual Studio Code, puis dans le menu file, cliquez sur Open Folder. Depuis la nouvelle fenêtre, recherchez le dossier projet dans l'explorateur de fichiers de votre machine. Double-cliquez dessus pour le selectionner.
 
+### Créer un build exploitable pour les serveurs d'hébergement
+
+Pour sa mise en ligne, il est important de "builder" le projet afin qu'il soit expoitable par les serveurs des hébergeurs.
+Pour se faire, toujours dans Node.js, une fois placé dans le dossier du projet, tapez la commande suivante :
+
+```sh
+npm run build
+```
+
+Un dossier Dist s'inserera dans le dossier complet du projet. C'est le contenu de ce dossier qu'il faudra transférer sur votre serveur dédié par votre hebergeur.
+Le transfert se fait en utilisant le protocole FTP, à l'aide d'un outil de transfert tiers comme Filezilla en téléchargeant la version "client" à cette adresse : [Filezilla](https://filezilla-project.org).
+
+
 ### Exploiter le formulaire fontionnel
 
 En fin de Template du Composant Accueil.vue, se trouve un formulaire avec l'action suivante :
